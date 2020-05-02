@@ -6,18 +6,18 @@
 
 
 CREATE TABLE company (
-    company_name     VARCHAR2(40) NOT NULL,
-    country_c_code   VARCHAR2(10) NOT NULL
+    company_name     VARCHAR2(100) NOT NULL,
+    country_c_code   VARCHAR2(30) NOT NULL
 );
 
 ALTER TABLE company ADD CONSTRAINT company_pk PRIMARY KEY ( company_name,
                                                             country_c_code );
 
 CREATE TABLE company_film (
-    company_company_name   VARCHAR2(40) NOT NULL,
-    company_c_code         VARCHAR2(10) NOT NULL,
-    film_film_name         VARCHAR2(50) NOT NULL,
-    film_director          VARCHAR2(30) NOT NULL
+    company_company_name   VARCHAR2(100) NOT NULL,
+    company_c_code         VARCHAR2(30) NOT NULL,
+    film_film_name         VARCHAR2(100) NOT NULL,
+    film_director          VARCHAR2(40) NOT NULL
 );
 
 ALTER TABLE company_film
@@ -27,14 +27,14 @@ ALTER TABLE company_film
                                                  film_director );
 
 CREATE TABLE country (
-    c_code VARCHAR2(10) NOT NULL
+    c_code VARCHAR2(30) NOT NULL
 );
 
 ALTER TABLE country ADD CONSTRAINT country_pk PRIMARY KEY ( c_code );
 
 CREATE TABLE film (
-    film_name      VARCHAR2(50) NOT NULL,
-    director       VARCHAR2(30) NOT NULL,
+    film_name      VARCHAR2(100) NOT NULL,
+    director       VARCHAR2(40) NOT NULL,
     release_date   DATE,
     budget         NUMBER(12, 1),
     income         NUMBER(13, 1)
@@ -45,8 +45,8 @@ ALTER TABLE film ADD CONSTRAINT film_pk PRIMARY KEY ( film_name,
 
 CREATE TABLE film_genre (
     genre_genre_name   VARCHAR2(20) NOT NULL,
-    film_film_name     VARCHAR2(50) NOT NULL,
-    film_director      VARCHAR2(30) NOT NULL
+    film_film_name     VARCHAR2(100) NOT NULL,
+    film_director      VARCHAR2(40) NOT NULL
 );
 
 ALTER TABLE film_genre
