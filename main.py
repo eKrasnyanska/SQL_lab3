@@ -19,11 +19,11 @@ host = '127.0.0.1:1521/xe'
 query1 = """
 select company, count(film) as quantity_films
 from films_review
-where income > 10000000
+where income > 500000000
 group by company"""
 
 query2 = """
-select genre, count(genre) as quantity_genres
+select genre, count(film) as quantity_genres
 from films_review 
 group by genre"""
 
@@ -56,7 +56,7 @@ for query in list_query:
     list_x_y += [temp1, temp2]
     cursor.close()
 my_con.close()
-#print(list_x_y)
+
 trace1 = go.Bar(
     x = list_x_y[2],
     y = list_x_y[3]
@@ -75,7 +75,7 @@ trace2 = go.Pie(
     values = list_x_y[1]
 )
 layout2 = go.Layout(
-    title_text = 'Best companies with films income more 10 million $'
+    title_text = 'Best companies with films income more 500 million $'
 )
 fig2 = go.Figure(data=trace2, layout=layout2)
 #fig2.write_html('best.html', auto_open=True)
